@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pest Detection Result</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🧪</div>
+      <div class="title">
+        <h1>Smart Pesticide Sprayer</h1>
+        <p class="subtitle">Step 2: Pest Found & Recommendation</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card glass" id="resultCard">
+      <h2>✅ Pest Found!</h2>
+      <p><strong>Pest Type:</strong> <span id="pestName"></span></p>
+      <p><strong>Recommended Pesticide:</strong> <span id="pesticideName"></span></p>
+      <p><strong>Notes:</strong> <span id="pesticideNotes"></span></p>
+      <button class="btn" onclick="goBack()">🔙 Go Back to Detection</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> Smart Pesticide Sprayer — ML College Project</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const pest = localStorage.getItem('detectedPest') || 'Unknown';
+    const data = {
+      Aphid: { pesticide: 'Imidacloprid 17.8% SL', notes: 'Rotate MoA; avoid spraying during bloom.' },
+      Caterpillar: { pesticide: 'Emamectin Benzoate 5% SG', notes: 'Target early instars; spray undersides.' },
+      Whitefly: { pesticide: 'Spirotetramat 22.9% OD', notes: 'Systemic; combine with sticky traps.' }
+    };
+    const details = data[pest] || { pesticide: 'N/A', notes: 'No data available.' };
+    document.getElementById('pestName').textContent = pest;
+    document.getElementById('pesticideName').textContent = details.pesticide;
+    document.getElementById('pesticideNotes').textContent = details.notes;
+
+    function goBack() {
+      localStorage.removeItem('detectedPest');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

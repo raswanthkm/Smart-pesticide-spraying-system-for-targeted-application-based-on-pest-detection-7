@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Pesticide Sprayer — Detection</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🌿</div>
+      <div class="title">
+        <h1>Smart Pesticide Sprayer</h1>
+        <p class="subtitle">Step 1: Detect pest presence</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card glass">
+      <h2>Upload a Leaf or Plant Image</h2>
+      <p class="muted">The system will identify whether the leaf or plant has a pest or not.</p>
+      <label class="filedrop" for="imgInput">
+        <input id="imgInput" type="file" accept="image/*" />
+        <span>Click to choose or drop an image here</span>
+      </label>
+      <div id="previewBox" class="preview muted">No image selected</div>
+      <div class="actions">
+        <button class="btn primary" id="analyzeBtn">Analyze</button>
+        <button class="btn" id="resetBtn">Reset</button>
+      </div>
+      <div id="resultMsg" class="result-panel muted">Awaiting input...</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> Smart Pesticide Sprayer — ML College Project</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
